@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Proxy Manager",
+  "version": "1.0.0",
+  "description": "Quản lý và cấu hình proxy cho Chrome một cách dễ dàng",
+  "permissions": [
+    "proxy",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

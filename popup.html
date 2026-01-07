@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>🌐 Proxy Manager</h2>
+        <div class="header-actions">
+          <div class="status" id="status">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="statusText">Không hoạt động</span>
+          </div>
+          <button id="checkIpBtn" class="btn-check-ip" title="Kiểm tra IP">
+            🔍 Kiểm tra IP
+          </button>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <!-- WWProxy API Section -->
+        <div class="api-section">
+          <h3>🔑 WWProxy API</h3>
+          <div class="form-group">
+            <label for="apiKey">API Key:</label>
+            <div class="input-group">
+              <input
+                type="password"
+                id="apiKey"
+                placeholder="Nhập API key từ wwproxy.com"
+              />
+              <button id="toggleKeyVisibility" class="btn-icon">👁️</button>
+            </div>
+          </div>
+          <div class="button-group">
+            <button id="getProxy" class="btn btn-primary btn-full">
+              🔄 Lấy Proxy & Đổi IP
+            </button>
+          </div>
+
+          <div id="apiLog" class="api-log"></div>
+        </div>
+
+        <!-- Manual Proxy Section -->
+        <div class="manual-section">
+          <h3>⚙️ Cấu hình thủ công</h3>
+
+          <div class="form-group">
+            <label for="proxyType">Loại Proxy:</label>
+            <select id="proxyType">
+              <option value="http">HTTP</option>
+              <option value="https">HTTPS</option>
+              <option value="socks4">SOCKS4</option>
+              <option value="socks5">SOCKS5</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="proxyHost">Server:</label>
+            <input type="text" id="proxyHost" placeholder="vd: 123.45.67.89" />
+          </div>
+
+          <div class="form-group">
+            <label for="proxyPort">Port:</label>
+            <input type="number" id="proxyPort" placeholder="vd: 8080" />
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="useAuth" />
+              Sử dụng xác thực
+            </label>
+          </div>
+
+          <div id="authFields" class="auth-fields" style="display: none">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" id="username" placeholder="Username" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" placeholder="Password" />
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button id="enableProxy" class="btn btn-primary">Bật Proxy</button>
+            <button id="disableProxy" class="btn btn-secondary">
+              Tắt Proxy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>📊 API Response Log</h3>
+        <div id="apiResponseLog" class="api-response-log">
+          <div class="log-placeholder">
+            Chưa có dữ liệu. Click "Lấy Proxy & Đổi IP" để xem response từ API.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <small>💡 Tip: Mọi thông tin API sẽ được hiển thị ở trên</small>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
