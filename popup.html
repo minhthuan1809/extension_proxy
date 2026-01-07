@@ -36,9 +36,20 @@
               <button id="toggleKeyVisibility" class="btn-icon">👁️</button>
             </div>
           </div>
+          <div class="form-group">
+            <label for="provinceSelect">Tỉnh/Thành phố:</label>
+            <select id="provinceSelect">
+              <option value="-1">🎲 Random (Tất cả)</option>
+            </select>
+          </div>
           <div class="button-group">
             <button id="getProxy" class="btn btn-primary btn-full">
               🔄 Lấy Proxy & Đổi IP
+            </button>
+          </div>
+          <div class="button-group">
+            <button id="getCurrentIp" class="btn btn-secondary btn-full">
+              📍 Xem IP hiện tại
             </button>
           </div>
 
@@ -97,17 +108,65 @@
         </div>
       </div>
 
-      <div class="info-section">
-        <h3>📊 API Response Log</h3>
-        <div id="apiResponseLog" class="api-response-log">
-          <div class="log-placeholder">
-            Chưa có dữ liệu. Click "Lấy Proxy & Đổi IP" để xem response từ API.
+      <div class="footer">
+        <button id="viewLogsBtn" class="btn-view-logs">
+          📊 Xem API Response Log
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal for Current IP -->
+    <div id="currentIpModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>📍 IP Hiện Tại</h3>
+          <button id="modalCloseBtn" class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="ip-info">
+            <div class="ip-info-row">
+              <span class="ip-info-label">IP Address:</span>
+              <span class="ip-info-value" id="modalIpAddress">-</span>
+            </div>
+            <div class="ip-info-row">
+              <span class="ip-info-label">Port:</span>
+              <span class="ip-info-value" id="modalPort">-</span>
+            </div>
+            <div class="ip-info-row">
+              <span class="ip-info-label">Tỉnh/Thành phố:</span>
+              <span class="ip-info-value" id="modalProvince">-</span>
+            </div>
+            <div class="ip-info-row">
+              <span class="ip-info-label">Hết hạn:</span>
+              <span class="ip-info-value" id="modalExpiry">-</span>
+            </div>
           </div>
         </div>
+        <div class="modal-footer">
+          <button id="modalCancelBtn" class="btn btn-secondary">Đóng</button>
+          <button id="modalApplyBtn" class="btn btn-primary">Áp dụng</button>
+        </div>
       </div>
+    </div>
 
-      <div class="footer">
-        <small>💡 Tip: Mọi thông tin API sẽ được hiển thị ở trên</small>
+    <!-- Modal for API Response Log -->
+    <div id="apiLogModal" class="modal">
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <h3>📊 API Response Log</h3>
+          <button id="apiLogModalCloseBtn" class="modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body modal-body-log">
+          <div id="apiResponseLog" class="api-response-log-modal">
+            <div class="log-placeholder">
+              Chưa có dữ liệu. Click "Lấy Proxy & Đổi IP" để xem response từ API.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="clearLogsBtn" class="btn btn-secondary">🗑️ Xóa Log</button>
+          <button id="apiLogModalCloseBtn2" class="btn btn-primary">Đóng</button>
+        </div>
       </div>
     </div>
 
